@@ -1,0 +1,36 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <h2><span>Input : </span></h2>
+        <textarea name="input" id="input" placeholder="Type (or paste) here..." spellcheck="false" style="margin: 0px; width: 860px; height: 242px;"></textarea>
+        <br/>
+        <br/>
+        <button type="button" id="submit_text"><i class="fas fa-chevron-left"></i>DECODE<i class="fas fa-chevron-right"></i></button>
+        <br/>
+        <h3><span>Output : </span></h3>
+        <textarea name="output" id="output" placeholder="Result goes here..." spellcheck="false" style="margin: 0px; width: 860px; height: 242px;"></textarea>
+        <script lang="javascript">
+            const txtInput = document.getElementById("input");
+            const txtOutput = document.getElementById("output");
+            const btnSubmit = document.getElementById("submit_text");
+            //
+            document.addEventListener("DOMContentLoaded", function(event) { 
+                btnSubmit.addEventListener("click",function() {
+                        var input = txtInput.value;
+                        //console.log(input);
+                        try {
+                            if(input){
+                                txtOutput.innerHTML = window.atob(input);
+                            }
+                        }
+                        catch(err){
+                            console.log(err);
+                            txtOutput.innerHTML = "input text not correct format base64"   
+                        }
+                });
+            });
+            </script>
+    </body>
+</html>
